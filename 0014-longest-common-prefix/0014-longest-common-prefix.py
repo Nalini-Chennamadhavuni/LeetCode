@@ -9,7 +9,7 @@ class Solution(object):
             for c in strs:
                 if i == len(c) or c[i]!= strs[0][i]:
                     return newstr
-            newstr += c[i]
+            newstr += strs[0][i]
                     
         return newstr
             
