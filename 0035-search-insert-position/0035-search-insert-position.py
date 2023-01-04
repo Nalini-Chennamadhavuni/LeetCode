@@ -5,12 +5,8 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        if target > nums[-1]:
-            return len(nums)
-        elif target < nums[0]:
-            return 0
+        if target in nums:
+           return (nums.index(target)) 
         else:
-            for i,n in enumerate(nums):
-                if n >= target:
-                    return i
-            return len(nums)
+           nums.append(target)
+           return sorted(nums).index(target)
