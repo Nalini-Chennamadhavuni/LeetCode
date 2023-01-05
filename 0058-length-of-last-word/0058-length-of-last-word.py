@@ -5,11 +5,11 @@ class Solution(object):
         :rtype: int
         """
         count = 0
-        s = s.strip()
-        print(s)
-        for i in s[::-1]:
-            if i != ' ':
-                count += 1
-            else:
+        isDone = False
+        for c in s[::-1]:
+            if c == ' ' and isDone:
                 break
+            if c != ' ':
+                count += 1
+                isDone = True
         return count
