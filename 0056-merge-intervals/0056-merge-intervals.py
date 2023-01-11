@@ -5,11 +5,11 @@ class Solution:
         if len(intervals) == 1:
             return intervals
        
-        merged = [intervals[0]]
+        merged = []
        
-        for i in range(1,len(intervals)):
-            if merged[-1][1] >= intervals[i][0]:
-                merged[-1][1] = max(merged[-1][1], intervals[i][1])
+        for i in intervals:
+            if not merged or merged[-1][1] < i[0]:
+                merged.append(i)
             else:
-                merged.append(intervals[i])
+                merged[-1][1] = max(merged[-1][1], i[1])
         return (merged)
