@@ -8,7 +8,6 @@ class Solution:
         while l <= r:
             m = (l + r) // 2  
             if (m * m) <= x <(m+1)*(m+1):
-                print("m", m)
                 return m
             elif x < (m * m):
                r = m
