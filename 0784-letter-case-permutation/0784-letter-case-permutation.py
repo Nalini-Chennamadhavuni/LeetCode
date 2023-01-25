@@ -1,11 +1,14 @@
 class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:
-        if s.isdigit():
-            return [s]
-        elif len(s) == 1:
-            return [s,s.lower()] if s.isupper() else [s,s.upper()]
-       
-        
-       
-        lu_sequence = ((c.lower(), c.upper()) for c in s)
-        return list(set([''.join(x) for x in itertools.product(*lu_sequence)]))
+        def backtrack(substr="", i=0):
+            if len(substr) == len(s):
+                res.append(substr)
+            else:
+                if s[i].isalpha():
+                    backtrack(substr + s[i].swapcase(), i + 1)
+                backtrack(substr + s[i], i + 1)
+                
+                
+        res = []
+        backtrack()
+        return res
