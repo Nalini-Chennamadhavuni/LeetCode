@@ -8,4 +8,4 @@ class Solution:
         
        
         lu_sequence = ((c.lower(), c.upper()) for c in s)
-        return list(set([''.join(x) for x in itertools.product(*lu_sequence)]))
+        return list(set(map(''.join, itertools.product(*zip(s.upper(), s.lower())))))
