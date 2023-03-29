@@ -4,13 +4,22 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        n = 0
-       
-        romandict = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
-
-        for i in range(len(s)):
-            if i+1 < len(s) and romandict[s[i]] < romandict[s[i+1]] :
-                n -= romandict[s[i]]
+        romandict= {"I":1, "V": 5, "X":10, "L":50, "C":100 , "D":500, "M":1000}
+        subtractdict= {"I" : ['V', 'X'], "X" : ['L', 'C'], "C" : ['D', 'M']  }
+        total = 0
+        end = len(s) - 1
+        while end >= 0:
+            if s[end-1] in subtractdict and s[end] in subtractdict[s[end-1]] and end != 0:
+                    print("s[end] is ", s[end])
+                    print("s[end -1] is ", s[end -1])
+                    total += (romandict[s[end]] - romandict[s[end-1]])
+                    end -= 2
             else:
-                n += romandict[s[i]]
-        return n
+                total += romandict[s[end]]
+                end -= 1
+        return total
+                
+                
+                
+            
+                    
