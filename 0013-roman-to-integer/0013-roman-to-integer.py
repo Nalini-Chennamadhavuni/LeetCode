@@ -10,8 +10,6 @@ class Solution(object):
         end = len(s) - 1
         while end >= 0:
             if s[end-1] in subtractdict and s[end] in subtractdict[s[end-1]] and end != 0:
-                    print("s[end] is ", s[end])
-                    print("s[end -1] is ", s[end -1])
                     total += (romandict[s[end]] - romandict[s[end-1]])
                     end -= 2
             else:
